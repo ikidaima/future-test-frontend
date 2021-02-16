@@ -1,4 +1,4 @@
-import { INCREASE_RANGE, DECREASE_RANGE } from "../../constants/constants";
+import { INCREASE_RANGE, DECREASE_RANGE, START_RANGE } from "../../constants/constants";
 
 const startingPosition = 0;
 const magnitudeOfChange = 50
@@ -20,6 +20,11 @@ const rangeOfContactReducer = (state = initState, action) => {
         return {
           start: state.start - magnitudeOfChange,
           end: state.end - magnitudeOfChange
+        }
+
+      case START_RANGE:
+        return {
+          ...initState
         }
   
     default: return state;

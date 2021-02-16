@@ -7,12 +7,10 @@ import { increaseRange, decreaseRange } from '../store/actions/actions'
 
 const Pagination = () => {
   const dispatch = useDispatch();
-
-  const selectRangeOfContact = state => state.rangeOfContact;
-  const selectContactList = state => state.contactList;
   
-  const rangeOfContact = useSelector(selectRangeOfContact);
-  const contactList = useSelector(selectContactList);
+  const rangeOfContact = useSelector(state => state.rangeOfContact);
+  const contactList = useSelector(state => state.contactList);
+  const isLoading = useSelector(state => state.isLoadingTableData);
 
   const nextButtonHandler = () => {
     dispatch( increaseRange() );
@@ -27,14 +25,14 @@ const Pagination = () => {
         type='button'
         description='prev'
         className='btn'
-        isDisabled={rangeOfContact.start === 0}
+        isDisabled={rangeOfContact.start === 0 || isLoading}
         handler={prevButtonHandler}
       />
       <Button
         type='button'
         description='next'
         className='btn'
-        isDisabled={rangeOfContact.end >= contactList.length}
+        isDisabled={rangeOfContact.end >= contactList.length || isLoading}
         handler={nextButtonHandler}
       />
     </div>

@@ -3,8 +3,18 @@ import {
   CHANGE_SORT_GROWTH,
   SORT_CONTACT_LIST,
   INCREASE_RANGE,
-  DECREASE_RANGE
+  DECREASE_RANGE,
+  GET_CONTACT,
+  CHANGE_STATE_LOADING,
+  START_RANGE
 } from '../../constants/constants';
+
+export function getContact(contactList) {
+  return {
+    type: GET_CONTACT,
+    payload: contactList
+  }
+}
 
 export function changeSortValue(value) {
   return {
@@ -28,6 +38,12 @@ export function sortContactList(keySort, growth) {
   }
 }
 
+export function startRange() {
+  return {
+    type: START_RANGE
+  }
+}
+
 export function increaseRange() {
   return {
     type: INCREASE_RANGE
@@ -37,5 +53,25 @@ export function increaseRange() {
 export function decreaseRange() {
   return {
     type: DECREASE_RANGE
+  }
+}
+
+export function changeStateLoading() {
+  return {
+    type: CHANGE_STATE_LOADING
+  }
+}
+
+export function fetchContactList(url) {
+  return function(dispatch) {
+    dispatch( changeStateLoading() );
+
+    fetch(url)
+      .then(response => response.json())
+      .then(contactList => {
+        dispatch( startRange() )
+        dispatch( getContact(contactList) );
+        dispatch( changeStateLoading() );
+      });
   }
 }

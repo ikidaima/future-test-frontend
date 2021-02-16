@@ -1,0 +1,9 @@
+.toolbar {
+  display: flex;
+  justify-content: end;
+  padding: 20px 0;
+}
+
+.toolbar > *:not(:last-child) {
+  margin-right: 2em;
+}

@@ -3,6 +3,11 @@
   margin: 0 auto;
 }
 
+.table-wrapper {
+  position: relative;
+  min-height: 50vh;
+}
+
 .pagination {
   display: flex;
   justify-content: space-between;
