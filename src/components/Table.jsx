@@ -19,11 +19,11 @@ const Table = () => {
       <TableHead 
         columns={MAIN_TABLE_COLUMNS}
         valueOfSort={valueOfSort}
+        listLength={contactList.length}
       />
       <TableBody
         columns={MAIN_TABLE_COLUMNS}
         list={contactList}
-        valueOfSort={valueOfSort}
       />
     </table>
   )

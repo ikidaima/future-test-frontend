@@ -1,19 +1,23 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { changeSortValue, changeSortGrowth } from '../store/actions/actions';
+import { changeSortValue, changeSortGrowth, sortContactList } from '../store/actions/actions';
 
-const TableHead = ({ columns, valueOfSort }) => {
+const TableHead = ({ columns, valueOfSort, listLength }) => {
   const dispatch = useDispatch();
+
   const thClickHandler = (event) => {
-    const keySort = event.target.dataset.key;
-
-    if (keySort === valueOfSort.value) {
-      dispatch( changeSortGrowth() )
-      return;
+    if (listLength) {
+      const keySort = event.target.dataset.key;
+      const isCurrentItemOfSort = keySort === valueOfSort.value
+      const growth = isCurrentItemOfSort ? !valueOfSort.growth : valueOfSort.growth;
+  
+      isCurrentItemOfSort ? 
+        dispatch( changeSortGrowth(growth) ) : 
+        dispatch( changeSortValue(keySort) );
+  
+      dispatch( sortContactList(keySort, growth) );
     }
-
-    dispatch( changeSortValue(keySort) );
   }
 
   return (

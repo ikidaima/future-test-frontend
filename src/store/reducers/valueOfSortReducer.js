@@ -1,11 +1,10 @@
 import {
-  MAIN_TABLE_COLUMNS,
   CHANGE_SORT_VALUE,
   CHANGE_SORT_GROWTH,
 } from '../../constants/constants'
 
 const initState = {
-  value: MAIN_TABLE_COLUMNS[0]['key'],
+  value: null,
   growth: true
 };
 
@@ -15,13 +14,14 @@ const valueOfSortReducer = (state = initState, action) => {
     case CHANGE_SORT_VALUE: return {
       ...state,
       value: action.payload
-    }
+    };
 
     case CHANGE_SORT_GROWTH: return {
       ...state,
-      growth: !state.growth
-    }
-    default: return state
+      growth: action.payload
+    };
+
+    default: return state;
   }
 };
 

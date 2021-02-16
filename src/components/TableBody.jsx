@@ -1,11 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-const TableBody = ({ columns, list, valueOfSort }) => {
+const TableBody = ({ columns, list }) => {
+  const selectRangeOfContact = state => state.rangeOfContact;
+  const rangeOfContact = useSelector(selectRangeOfContact);
+  const limitRangeList = list.slice(rangeOfContact.start, rangeOfContact.end);
 
   return (
     <tbody>
       {
-        list.map( itemRow => {
+        limitRangeList.map( itemRow => {
           return (
             <tr 
               key={itemRow.phone}

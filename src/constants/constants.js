@@ -4,8 +4,11 @@ export const API_BIG_AMOUNT_OF_DATA = 'http://www.filltext.com/?rows=1000&id={nu
 
 // ACTION TYPES
 export const GET_CONTACT = 'GET_CONTACT';
+export const SORT_CONTACT_LIST = 'SORT_CONTACT_LIST';
 export const CHANGE_SORT_VALUE = 'CHANGE_SORT_VALUE';
 export const CHANGE_SORT_GROWTH = 'CHANGE_SORT_GROWTH';
+export const INCREASE_RANGE = 'INCREASE_RANGE';
+export const DECREASE_RANGE = 'DECREASE_RANGE';
 
 // FOR TABLE
 export const MAIN_TABLE_COLUMNS = [
