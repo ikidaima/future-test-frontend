@@ -1,0 +1,18 @@
+.loading {
+  width: 30px;
+  height: 30px;
+  border: 6px solid;
+  border-color: #bbb #bbb #bbb transparent;
+  border-radius: 50%;
+  animation: loader 1s linear infinite;
+}
+
+@keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
