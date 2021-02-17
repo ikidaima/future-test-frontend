@@ -1,4 +1,5 @@
-import { FILTER_CONTACT_LIST, RESET_FILTERED_LIST } from "../../constants/constants";
+import { FILTER_CONTACT_LIST, RESET_FILTERED_LIST, SORT_FILTERED_LIST } from "../../constants/constants";
+import { compareSort } from "../../lib_tools/compareSort";
 
 const initState = null;
 
@@ -17,6 +18,11 @@ const filteredContactListReducer = (state = initState, action) => {
 
         return ~valueIsChecked.search(new RegExp(lowerValueOfFilter));
       });
+
+    case SORT_FILTERED_LIST:
+      const compare = compareSort(action.keySort, action.growth);
+
+      return [...state].sort( compare );
 
     case RESET_FILTERED_LIST:
       return initState;

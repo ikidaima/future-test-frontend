@@ -18,6 +18,7 @@ const Table = () => {
         columns={MAIN_TABLE_COLUMNS}
         valueOfSort={valueOfSort}
         listLength={contactList.length}
+        filteredList={filteredContactList}
       />
       <TableBody
         columns={MAIN_TABLE_COLUMNS}

@@ -7,11 +7,10 @@ import {
   GET_CONTACT,
   CHANGE_STATE_LOADING,
   START_RANGE,
-  CHANGE_FILTER,
-  RESET_FILTER,
-  CHANGE_FILTERED_LIST_LENGTH,
   FILTER_CONTACT_LIST,
-  RESET_FILTERED_LIST
+  RESET_FILTERED_LIST,
+  RESET_SORT_VALUE,
+  SORT_FILTERED_LIST
 } from '../../constants/constants';
 
 export function getContact(contactList) {
@@ -40,6 +39,12 @@ export function sortContactList(keySort, growth) {
     type: SORT_CONTACT_LIST,
     keySort,
     growth
+  }
+}
+
+export function resetSortValue() {
+  return {
+    type: RESET_SORT_VALUE
   }
 }
 
@@ -78,6 +83,14 @@ export function filterContactList(sourceArr, categoryOfFilter, valueOfFilter) {
   }
 }
 
+export function sortFilteredList(keySort, growth) {
+  return {
+    type: SORT_FILTERED_LIST,
+    keySort,
+    growth
+  }
+}
+
 export function resetFilteredList() {
   return {
     type: RESET_FILTERED_LIST
@@ -91,8 +104,13 @@ export function fetchContactList(url) {
     fetch(url)
       .then(response => response.json())
       .then(contactList => {
-        dispatch( startRange() )
+        dispatch( resetSortValue() );
+        dispatch( startRange() );
         dispatch( getContact(contactList) );
+        dispatch( changeStateLoading() );
+      })
+      .catch(err => {
+        alert(err);
         dispatch( changeStateLoading() );
       });
   }

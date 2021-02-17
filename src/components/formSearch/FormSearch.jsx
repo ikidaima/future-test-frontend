@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterContactList, resetFilteredList, startRange } from '../../store/actions/actions';
+import { filterContactList, resetFilteredList, startRange, resetSortValue } from '../../store/actions/actions';
 
 import Button from '../generic/Button';
 import ParamOfSearch from './ParamOfSearch';
@@ -41,6 +41,7 @@ const FormSearch = () => {
   const deleteParamOfSearch = () => {
     setParamOfFilter(initParamOfFilter);
     dispatch( resetFilteredList() );
+    dispatch( resetSortValue() );
   };
 
   return (
