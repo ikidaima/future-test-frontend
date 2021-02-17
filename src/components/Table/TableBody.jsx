@@ -1,7 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeSelectedContact } from '../../store/actions/actions';
 
 const TableBody = ({ columns, list }) => {
+  const dispatch = useDispatch();
   const selectRangeOfContact = state => state.rangeOfContact;
   const rangeOfContact = useSelector(selectRangeOfContact);
   const limitRangeList = list.slice(rangeOfContact.start, rangeOfContact.end);
@@ -13,6 +15,7 @@ const TableBody = ({ columns, list }) => {
           return (
             <tr 
               key={itemRow.phone}
+              onClick={() => dispatch( changeSelectedContact(itemRow) )}
             >
               {
                 columns.map( (itemColumn, indexColumn) => {

@@ -5,6 +5,7 @@ import ToolBar from './ToolBar';
 import Table from './Table/Table';
 import Pagination from './Pagination';
 import Loading from './generic/Loading';
+import ContactInfo from './ContactInfo/ContactInfo';
 
 import './App.scss';
 
@@ -19,6 +20,7 @@ const App = () => {
         <Table />
       </div>
       <Pagination />
+      <ContactInfo />
     </div>
   )
 };

@@ -10,7 +10,8 @@ import {
   FILTER_CONTACT_LIST,
   RESET_FILTERED_LIST,
   RESET_SORT_VALUE,
-  SORT_FILTERED_LIST
+  SORT_FILTERED_LIST,
+  CHANGE_SELECTED_CONTACT
 } from '../../constants/constants';
 
 export function getContact(contactList) {
@@ -94,6 +95,13 @@ export function sortFilteredList(keySort, growth) {
 export function resetFilteredList() {
   return {
     type: RESET_FILTERED_LIST
+  }
+}
+
+export function changeSelectedContact(value) {
+  return {
+    type: CHANGE_SELECTED_CONTACT,
+    payload: value
   }
 }
 
