@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import ToolBar from './ToolBar';
-import Table from './Table';
+import Table from './Table/Table';
 import Pagination from './Pagination';
 import Loading from './generic/Loading';
 

@@ -18,7 +18,11 @@ export const INCREASE_RANGE = 'INCREASE_RANGE';
 export const DECREASE_RANGE = 'DECREASE_RANGE';
 
 // LOADING STATE
-export const CHANGE_STATE_LOADING = 'CHANGE_STATE_LOADING'
+export const CHANGE_STATE_LOADING = 'CHANGE_STATE_LOADING';
+
+// FILTER
+export const FILTER_CONTACT_LIST = 'FILTER_CONTACT_LIST';
+export const RESET_FILTERED_LIST = 'RESET_FILTERED_LIST';
 
 // FOR TABLE
 export const MAIN_TABLE_COLUMNS = [
@@ -42,4 +46,4 @@ export const MAIN_TABLE_COLUMNS = [
     heading: 'phone',
     key: 'phone'
   },
-]
+];

@@ -3,16 +3,14 @@ import { useSelector } from 'react-redux';
 
 import TableBody from './TableBody';
 import TableHead from './TableHead';
-import { MAIN_TABLE_COLUMNS } from '../constants/constants'
+import { MAIN_TABLE_COLUMNS } from '../../constants/constants'
 
 import './Table.scss';
 
 const Table = () => {
-  const selectContactList = state => state.contactList;
-  const selectValueOfSort = state => state.valueOfSort
-
-  const contactList = useSelector(selectContactList);
-  const valueOfSort = useSelector(selectValueOfSort);
+  const contactList = useSelector(state => state.contactList);
+  const filteredContactList = useSelector(state => state.filteredContactList);
+  const valueOfSort = useSelector(state => state.valueOfSort);
 
   return (
     <table className='table'>
@@ -23,7 +21,7 @@ const Table = () => {
       />
       <TableBody
         columns={MAIN_TABLE_COLUMNS}
-        list={contactList}
+        list={filteredContactList || contactList}
       />
     </table>
   )

@@ -10,6 +10,7 @@ const Pagination = () => {
   
   const rangeOfContact = useSelector(state => state.rangeOfContact);
   const contactList = useSelector(state => state.contactList);
+  const filteredContactList = useSelector(state => state.filteredContactList) || contactList;
   const isLoading = useSelector(state => state.isLoadingTableData);
 
   const nextButtonHandler = () => {
@@ -32,7 +33,11 @@ const Pagination = () => {
         type='button'
         description='next'
         className='btn'
-        isDisabled={rangeOfContact.end >= contactList.length || isLoading}
+        isDisabled={
+          rangeOfContact.end >= contactList.length ||
+          rangeOfContact.end >= filteredContactList.length ||
+          isLoading
+        }
         handler={nextButtonHandler}
       />
     </div>

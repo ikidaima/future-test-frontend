@@ -6,7 +6,12 @@ import {
   DECREASE_RANGE,
   GET_CONTACT,
   CHANGE_STATE_LOADING,
-  START_RANGE
+  START_RANGE,
+  CHANGE_FILTER,
+  RESET_FILTER,
+  CHANGE_FILTERED_LIST_LENGTH,
+  FILTER_CONTACT_LIST,
+  RESET_FILTERED_LIST
 } from '../../constants/constants';
 
 export function getContact(contactList) {
@@ -59,6 +64,23 @@ export function decreaseRange() {
 export function changeStateLoading() {
   return {
     type: CHANGE_STATE_LOADING
+  }
+}
+
+export function filterContactList(sourceArr, categoryOfFilter, valueOfFilter) {
+  return {
+    type: FILTER_CONTACT_LIST,
+    payload: {
+      sourceArr,
+      categoryOfFilter,
+      valueOfFilter
+    }
+  }
+}
+
+export function resetFilteredList() {
+  return {
+    type: RESET_FILTERED_LIST
   }
 }
 

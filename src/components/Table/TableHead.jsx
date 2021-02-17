@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { changeSortValue, changeSortGrowth, sortContactList } from '../store/actions/actions';
+import { changeSortValue, changeSortGrowth, sortContactList } from '../../store/actions/actions';
 
 const TableHead = ({ columns, valueOfSort, listLength }) => {
   const dispatch = useDispatch();
