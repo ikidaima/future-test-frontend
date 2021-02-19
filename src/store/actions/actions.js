@@ -11,13 +11,21 @@ import {
   RESET_FILTERED_LIST,
   RESET_SORT_VALUE,
   SORT_FILTERED_LIST,
-  CHANGE_SELECTED_CONTACT
+  CHANGE_SELECTED_CONTACT,
+  ADD_CONTACT
 } from '../../constants/constants';
 
 export function getContact(contactList) {
   return {
     type: GET_CONTACT,
     payload: contactList
+  }
+}
+
+export function addContact(contact) {
+  return {
+    type: ADD_CONTACT,
+    payload: contact
   }
 }
 

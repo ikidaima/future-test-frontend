@@ -1,0 +1,16 @@
+.input-wrapper {
+  &__input {
+    min-width: 400px;
+    padding: 0.5em 1.5em;
+  }
+
+  &__label-error {
+    display: none;
+    padding: 0.5em 1.5em;
+    color: #f00;
+  }
+
+  &__label-error.invalid {
+    display: block;
+  }
+}

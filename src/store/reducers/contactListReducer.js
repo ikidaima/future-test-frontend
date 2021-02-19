@@ -1,4 +1,5 @@
 import { 
+  ADD_CONTACT,
   GET_CONTACT, 
   SORT_CONTACT_LIST
 } from '../../constants/constants'
@@ -11,6 +12,12 @@ const contactListReducer = (state = initState, action) => {
     case GET_CONTACT: 
       return [
         ...action.payload
+      ];
+
+    case ADD_CONTACT:
+      return [
+        action.payload,
+        ...state
       ];
 
     case SORT_CONTACT_LIST:

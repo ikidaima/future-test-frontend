@@ -7,6 +7,7 @@ export const API_BIG_AMOUNT_OF_DATA = 'http://www.filltext.com/?rows=1000&id={nu
 // CONTACT_LIST
 export const GET_CONTACT = 'GET_CONTACT';
 export const SORT_CONTACT_LIST = 'SORT_CONTACT_LIST';
+export const ADD_CONTACT = 'ADD_CONTACT';
 
 // SORTING
 export const CHANGE_SORT_VALUE = 'CHANGE_SORT_VALUE';
@@ -52,3 +53,9 @@ export const MAIN_TABLE_COLUMNS = [
     key: 'phone'
   },
 ];
+
+// RegExp
+export const REG_NUMBER = /^[0-9]{1,}$/;
+export const REG_WORD = /^[A-Za-zА-Яа-я]{1,}$/;
+export const REG_EMAIL = /^.+@.+\..+$/;
+export const REG_PHONE = /^\([0-9]{3}\)[0-9]{3}-[0-9]{4}$/;

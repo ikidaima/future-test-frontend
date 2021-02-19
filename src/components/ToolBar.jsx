@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { API_BIG_AMOUNT_OF_DATA, API_SMALL_AMOUNT_OF_DATA } from '../constants/constants';
 import { fetchContactList } from '../store/actions/actions';
+import FormAdd from './FormAdd/FormAdd';
 import FormSearch from './formSearch/FormSearch';
 
 import Button from './generic/Button';
@@ -36,6 +37,9 @@ const  ToolBar = () => {
         />
       </div>
       <FormSearch />
+      <div className="toolbar__form-add">
+        <FormAdd />
+      </div>
     </div>
   )
 };
